@@ -33,4 +33,4 @@ jobs:
         context: .
         push: false
         tags: |
-          ${{ env.AWS_REGION }}.amazonaws.com/${{ env.ECR_REPOSITORY }}:${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && steps.bump_version.outputs.new_tag || github.head_ref }}-${{ github.sha }}
+         ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && steps.bump_version.outputs.new_tag || github.head_ref }}-${{ github.sha }}
